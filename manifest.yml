@@ -1,7 +1,6 @@
 applications:
 - name: elephant
   host: elephantine
-  domain: stage1.mybluemix.net
   memory: 1024M
   instances: 3
   disk_quota: 512M
