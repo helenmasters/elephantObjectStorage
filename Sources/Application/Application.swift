@@ -27,6 +27,14 @@ public func initialize() throws {
     objectStorage = ObjectStorage(service: objectStorageService)
     try objectStorage?.connectSync(service: objectStorageService)
 
+    objectStorage!.retrieveContainersList { (error, containers) in
+	if let error = error {
+		print("retrieve containers list error :: \(error)")
+	} else {
+		print("retrieve containers list success :: \(containers?.description)")
+	}
+    }
+
     router.all("/*", middleware: BodyParser())
     router.all("/", middleware: StaticFileServer())
     initializeSwaggerRoute(path: ConfigurationManager.BasePath.project.path + "/definitions/elephant.yaml")
