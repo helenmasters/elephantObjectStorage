@@ -1,8 +1,8 @@
 applications:
 - name: elephant
   host: elephantine
-  memory: 1024M
-  instances: 3
+  memory: 512M
+  instances: 1
   disk_quota: 512M
   buildpack: swift_buildpack
   command: elephant --bind 0.0.0.0:$PORT
